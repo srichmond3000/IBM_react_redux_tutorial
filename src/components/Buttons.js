@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { go, caution, stop } from '../actions/trafficLightActions';
 import * as types from '../actions/actionTypes';
@@ -25,6 +26,10 @@ const Buttons = ({ store }) => {
       </button>
     </div>
   );
+};
+
+Buttons.propTypes = {
+  store: PropTypes.object.isRequired
 };
 
 export default Buttons;

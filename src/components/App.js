@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Buttons from './Buttons';
 import Stoplight from './Stoplight';
@@ -13,5 +14,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  store: PropTypes.object.isRequired
+};
 
 export default App;

@@ -16,7 +16,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
@@ -24,7 +24,7 @@ module.exports = {
         }
       },
       {
-        test:/\.js?$/,
+        test:/\.js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
       }

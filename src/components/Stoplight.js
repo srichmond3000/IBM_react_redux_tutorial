@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as types from '../actions/actionTypes';
 
@@ -32,6 +33,10 @@ const Stoplight = ({ store }) => {
       </svg>
     </div>
   );
-}
+};
+
+Stoplight.propTypes = {
+  store: PropTypes.object.isRequired
+};
 
 export default Stoplight;
