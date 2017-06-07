@@ -7,13 +7,7 @@ import trafficLightReducer from './reducers/trafficLightReducer';
 
 const store = createStore(trafficLightReducer);
 
-const render = () => {
-  ReactDOM.render(
-    <App store={store} />,
-    document.getElementById('app')
-  );
-};
-
-store.subscribe(render);
-
-render();
+ReactDOM.render(
+  <App store={createStore(trafficLightReducer)} />,
+  document.getElementById('app')
+);
