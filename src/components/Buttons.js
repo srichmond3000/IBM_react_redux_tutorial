@@ -1,44 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { go, caution, stop } from '../actions/trafficLightActions';
 import * as types from '../actions/actionTypes';
 
-class Buttons extends React.Component {
-  componentWillMount() {
-    this.props.store.subscribe(() => {
-      this.forceUpdate();
-    });
-  }
-
-  render() {
-    const state = this.props.store.getState();
-    const store = this.props.store;
-
-    return (
-      <div style={{ textAlign: 'center' }}>
-        <button onClick={function () { store.dispatch(go); }}
-          disabled={state === types.GO || state === types.CAUTION}
-          style={{ cursor: 'pointer' }}>
-          Go
+const Buttons = ({ go, caution, stop, lightStatus }) => {
+  return (
+    <div style={{ textAlign: 'center' }}>
+      <button onClick={go}
+        disabled={lightStatus === types.GO || lightStatus === types.CAUTION}
+        style={{ cursor: 'pointer' }}>
+        Go
       </button>
-        <button onClick={function () { store.dispatch(caution); }}
-          disabled={state === types.STOP || state === types.CAUTION}
-          style={{ cursor: 'pointer' }}>
-          Caution
+      <button onClick={caution}
+        disabled={lightStatus === types.STOP || lightStatus === types.CAUTION}
+        style={{ cursor: 'pointer' }}>
+        Caution
       </button>
-        <button onClick={function () { store.dispatch(stop); }}
-          disabled={state === types.GO || state === types.STOP}
-          style={{ cursor: 'pointer' }}>
-          Stop
+      <button onClick={stop}
+        disabled={lightStatus === types.GO || lightStatus === types.STOP}
+        style={{ cursor: 'pointer' }}>
+        Stop
       </button>
-      </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 Buttons.propTypes = {
-  store: PropTypes.object.isRequired
+  go: PropTypes.func.isRequired,
+  caution: PropTypes.func.isRequired,
+  stop: PropTypes.func.isRequired,
+  lightStatus: PropTypes.string.isRequired
 };
 
 export default Buttons;

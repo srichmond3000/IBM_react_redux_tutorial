@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Buttons from './Buttons';
-import Stoplight from './Stoplight';
+import {ButtonContainer} from './ButtonContainer';
+import {StoplightContainer} from './StoplightContainer';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Stoplight store={this.props.store} />
-        <Buttons store={this.props.store} />
+        <StoplightContainer store={this.props.store} />
+        <ButtonContainer store={this.props.store} />
       </div>
     );
   }
